@@ -26,6 +26,6 @@ public class InitializingBeanApp implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        characterService.getAllJson(jsonValueService);
+        characterService.getAllJson();
     }
 }

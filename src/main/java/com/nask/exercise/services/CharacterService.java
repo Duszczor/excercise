@@ -3,6 +3,7 @@ package com.nask.exercise.services;
 import com.nask.exercise.models.JsonValues;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,7 +15,10 @@ public class CharacterService {
     private static final Integer SUBSTRING_URL = 29;
     private static final String API_URL = "https://swapi.dev/api/planets/";
 
-    public void getAllJson(JsonValueService service) {
+    @Autowired
+    JsonValueService service;
+
+    public void getAllJson() {
         List<JsonValues> listToPrint = service.getAll();
         if (listToPrint == null || listToPrint.isEmpty()) {
             //POBIERAMY WSZYSTKIE POSTACIE JAKO JSON
